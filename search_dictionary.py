@@ -25,7 +25,7 @@ class Dict:
 
     Metode:
         __init__(self, name='Dictionar En-Ro', initial_words=None)
-            - constructor pe baza nume si dictionar de start
+            - constructor pe baza nume (string) si dictionar de start (dict)
         add(self, word, translation)
             - adauga un cuvant word cu traducerea translation la dictionar
         display(self)
@@ -45,6 +45,7 @@ class Dict:
             self.words = {}
         else:
             self.words = initial_words.copy()
+            Dict.total += len(initial_words)
 
     def add(self, word, translation):
         self.words[word] = translation
@@ -71,7 +72,8 @@ class Dict:
 
 
 def main():
-    d = Dict('Dictionar Roman Englez')
+    d = Dict('Dictionar Roman Englez',
+             {'mare': 'sea', 'calculator': 'computer'})
     d.add('zi', 'day')
     d.add('ora', 'hour')
     d.add('soare', 'sun')
